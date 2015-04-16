@@ -25,14 +25,14 @@ class PlaySoundsViewController: UIViewController {
             println("the filePath is empty")
         }
     }
-    
+
     @IBAction func playSlowAudio(sender: UIButton) {
         audioPlayer.stop()
         audioPlayer.rate = 0.5
         audioPlayer.currentTime = 0.0
         audioPlayer.play()
     }
-    
+
     @IBAction func playFastAudio(sender: UIButton) {
         audioPlayer.stop()
         audioPlayer.rate = 1.5
