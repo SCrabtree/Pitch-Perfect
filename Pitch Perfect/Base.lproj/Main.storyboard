@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="09r-Q9-pJG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="09r-Q9-pJG">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -171,25 +171,41 @@
                                     <action selector="stopSoundsButton:" destination="Eow-2Z-pPY" eventType="touchUpInside" id="Se9-Pg-bEg"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="phj-H5-tDG">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="chipmunk">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playChipmunkAudio:" destination="Eow-2Z-pPY" eventType="touchUpInside" id="lco-Wg-Aig"/>
+                                    <action selector="playSlowAudio:" destination="Eow-2Z-pPY" eventType="touchUpInside" id="DuQ-yg-Kn1"/>
+                                    <action selector="slow:" destination="Eow-2Z-pPY" eventType="touchUpInside" id="2Xe-46-hvM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Q8u-dU-Nbz" firstAttribute="top" secondItem="LBU-1R-brL" secondAttribute="bottom" constant="50" id="0p9-nZ-may"/>
                             <constraint firstAttribute="trailingMargin" secondItem="EbS-Xv-9jD" secondAttribute="trailing" constant="30" id="DMY-xI-afK"/>
                             <constraint firstItem="EbS-Xv-9jD" firstAttribute="top" secondItem="LBU-1R-brL" secondAttribute="bottom" constant="50" id="K5L-hN-i70"/>
+                            <constraint firstItem="phj-H5-tDG" firstAttribute="top" secondItem="Q8u-dU-Nbz" secondAttribute="bottom" constant="36" id="RTo-pV-wS5"/>
                             <constraint firstItem="Q8u-dU-Nbz" firstAttribute="leading" secondItem="Eed-92-Aoa" secondAttribute="leadingMargin" constant="30" id="fzV-cP-vi0"/>
+                            <constraint firstItem="phj-H5-tDG" firstAttribute="leading" secondItem="Eed-92-Aoa" secondAttribute="leadingMargin" constant="30" id="uSX-rh-ZgY"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="Q8u-dU-Nbz"/>
                                 <exclude reference="EbS-Xv-9jD"/>
                                 <exclude reference="HLA-dg-9kQ"/>
+                                <exclude reference="phj-H5-tDG"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="DMY-xI-afK"/>
                                 <exclude reference="K5L-hN-i70"/>
                                 <exclude reference="0p9-nZ-may"/>
                                 <exclude reference="fzV-cP-vi0"/>
+                                <exclude reference="RTo-pV-wS5"/>
+                                <exclude reference="uSX-rh-ZgY"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -197,12 +213,15 @@
                                 <include reference="Q8u-dU-Nbz"/>
                                 <include reference="EbS-Xv-9jD"/>
                                 <include reference="HLA-dg-9kQ"/>
+                                <include reference="phj-H5-tDG"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="DMY-xI-afK"/>
                                 <include reference="K5L-hN-i70"/>
                                 <include reference="0p9-nZ-may"/>
                                 <include reference="fzV-cP-vi0"/>
+                                <include reference="RTo-pV-wS5"/>
+                                <include reference="uSX-rh-ZgY"/>
                             </mask>
                         </variation>
                     </view>
@@ -232,6 +251,7 @@
     </scenes>
     <resources>
         <image name="Microphone_vector" width="612" height="792"/>
+        <image name="chipmunk" width="100" height="100"/>
         <image name="fast" width="100" height="100"/>
         <image name="slow" width="100" height="100"/>
         <image name="stop" width="50" height="50"/>
