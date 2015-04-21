@@ -134,7 +134,7 @@
                         <viewControllerLayoutGuide type="top" id="LBU-1R-brL"/>
                         <viewControllerLayoutGuide type="bottom" id="pBK-gJ-Rdl"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Eed-92-Aoa" customClass="please">
+                    <view key="view" contentMode="scaleToFill" id="Eed-92-Aoa">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -215,12 +215,12 @@
                                 <exclude reference="u72-LH-VDa"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="DMY-xI-afK"/>
+                                <exclude reference="K5L-hN-i70"/>
                                 <exclude reference="0p9-nZ-may"/>
                                 <exclude reference="fzV-cP-vi0"/>
                                 <exclude reference="RTo-pV-wS5"/>
                                 <exclude reference="uSX-rh-ZgY"/>
-                                <exclude reference="DMY-xI-afK"/>
-                                <exclude reference="K5L-hN-i70"/>
                                 <exclude reference="4qu-6e-8oD"/>
                                 <exclude reference="ewH-tZ-5ur"/>
                             </mask>
@@ -234,12 +234,12 @@
                                 <include reference="u72-LH-VDa"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="DMY-xI-afK"/>
+                                <include reference="K5L-hN-i70"/>
                                 <include reference="0p9-nZ-may"/>
                                 <include reference="fzV-cP-vi0"/>
                                 <include reference="RTo-pV-wS5"/>
                                 <include reference="uSX-rh-ZgY"/>
-                                <include reference="DMY-xI-afK"/>
-                                <include reference="K5L-hN-i70"/>
                                 <include reference="4qu-6e-8oD"/>
                                 <include reference="ewH-tZ-5ur"/>
                             </mask>
