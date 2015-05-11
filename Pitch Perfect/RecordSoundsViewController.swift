@@ -66,6 +66,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
             recordedAudio = RecordedAudio()
             recordedAudio.filePathURL = recorder.url
             recordedAudio.title = recorder.url.lastPathComponent
+            
             // Segue to the next scene
             self.performSegueWithIdentifier("stopRecording", sender: RecordedAudio())
         }else{
