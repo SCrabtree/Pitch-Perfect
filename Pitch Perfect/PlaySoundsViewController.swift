@@ -19,12 +19,12 @@ class PlaySoundsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        audioPlayer = AVAudioPlayer(contentsOfURL: receivedAudio.filePathURL, error: nil)
+        
+        audioPlayer = AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl, error: nil)
         audioPlayer.enableRate = true
         
         audioEngine = AVAudioEngine()
-        audioFile = AVAudioFile(forReading: receivedAudio.filePathURL, error: nil)
+        audioFile = AVAudioFile(forReading: receivedAudio.filePathUrl, error: nil)
     }
 
     @IBAction func playSlowAudio(sender: UIButton) {

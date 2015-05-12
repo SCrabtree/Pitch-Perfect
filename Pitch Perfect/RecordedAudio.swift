@@ -8,14 +8,8 @@
 
 import Foundation
 
-class RecordedAudio: NSObject {
-    
-    var filePathURL: NSURL!
+class RecordedAudio: NSObject{
+    var filePathUrl: NSURL!
     var title: String!
-
-//    init() {
-//        filePathURL
-//        title
-//    }
-
+    
 }
