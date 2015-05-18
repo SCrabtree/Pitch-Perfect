@@ -12,8 +12,10 @@ import AVFoundation
 class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
     @IBOutlet weak var recordingInProgress: UILabel!
+    @IBOutlet weak var recordingPaused: UILabel!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var recordButton: UIButton!
+    @IBOutlet weak var pauseButton: UIButton!
     
     var audioRecorder:AVAudioRecorder!
     var recordedAudio:RecordedAudio!
@@ -27,16 +29,21 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     }
 
     override func viewWillAppear(animated: Bool) {
+        // Hide stop button and record notification until mic is pressed
         stopButton.hidden = true
+        pauseButton.hidden = true
         recordButton.enabled = true
     }
 
     @IBAction func recordAudio(sender: AnyObject) {
+        // Show stop button and record notification
         stopButton.hidden = false
+        pauseButton.hidden = false
         recordingInProgress.hidden = false
         recordButton.enabled = false
-        let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
         
+        // Begin recording and timestamp audio
+        let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
         let currentDateTime = NSDate()
         let formatter = NSDateFormatter()
         formatter.dateFormat = "ddMMyyyy-HHmmss"
@@ -55,27 +62,40 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     }
     
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder!, successfully flag: Bool) {
+        //If recorded successfully, segue to PlaySoundsViewController. If not, notify user.
         if(flag) {
             recordedAudio = RecordedAudio(filePathUrl: recorder.url, title: recorder.url.lastPathComponent!)
             self.performSegueWithIdentifier("stopRecording", sender: recordedAudio)
         }else{
             println("Recording was not successful")
             recordButton.enabled = true
+            pauseButton.hidden = true
             stopButton.hidden = true
         }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // If recording was successful, and thus marked as "stopRecording", segue to PlaySoundsViewController
         if (segue.identifier == "stopRecording") {
             let playSoundsVC:PlaySoundsViewController = segue.destinationViewController as! PlaySoundsViewController
             let data = sender as! RecordedAudio
             playSoundsVC.receivedAudio = data
         }
     }
+
+    @IBAction func pauseAudio(sender: UIButton) {
+        // Pause audio recording
+        audioRecorder.pause()
+        
+        // Show notification that recording has paused
+        recordingPaused.hidden = false
+    }
     
     @IBAction func stopAudio(sender: UIButton) {
+        // Show notification that recording is in progress
         recordingInProgress.hidden = true
-        //TODO: Stop recording the user's voice
+
+        //Stop recording the user's voice
         audioRecorder.stop()
         var audioSession = AVAudioSession.sharedInstance()
         audioSession.setActive(false, error: nil)
