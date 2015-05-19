@@ -12,10 +12,8 @@ import AVFoundation
 class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
     @IBOutlet weak var recordingInProgress: UILabel!
-    @IBOutlet weak var recordingPaused: UILabel!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var recordButton: UIButton!
-    @IBOutlet weak var pauseButton: UIButton!
     
     var audioRecorder:AVAudioRecorder!
     var recordedAudio:RecordedAudio!
@@ -31,14 +29,12 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     override func viewWillAppear(animated: Bool) {
         // Hide stop button and record notification until mic is pressed
         stopButton.hidden = true
-        pauseButton.hidden = true
         recordButton.enabled = true
     }
 
     @IBAction func recordAudio(sender: AnyObject) {
         // Show stop button and record notification
         stopButton.hidden = false
-        pauseButton.hidden = false
         recordingInProgress.hidden = false
         recordButton.enabled = false
         
@@ -69,7 +65,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         }else{
             println("Recording was not successful")
             recordButton.enabled = true
-            pauseButton.hidden = true
             stopButton.hidden = true
         }
     }
@@ -83,14 +78,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         }
     }
 
-    @IBAction func pauseAudio(sender: UIButton) {
-        // Pause audio recording
-        audioRecorder.pause()
-        
-        // Show notification that recording has paused
-        recordingPaused.hidden = false
-    }
-    
     @IBAction func stopAudio(sender: UIButton) {
         // Show notification that recording is in progress
         recordingInProgress.hidden = true
