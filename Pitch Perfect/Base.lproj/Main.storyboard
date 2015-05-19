@@ -233,10 +233,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Record" id="X6f-67-JpQ"/>
                     <connections>
-                        <outlet property="pauseButton" destination="5Kr-Q1-sYf" id="9EK-eU-VfW"/>
                         <outlet property="recordButton" destination="hem-16-jgV" id="4om-Kz-vc2"/>
                         <outlet property="recordingInProgress" destination="5Va-pq-4uO" id="UDd-2q-Hi6"/>
-                        <outlet property="recordingPaused" destination="3io-0x-Xkg" id="4Cr-Cd-VWL"/>
                         <outlet property="stopButton" destination="pmE-aX-bNF" id="tAV-12-yhA"/>
                         <segue destination="Eow-2Z-pPY" kind="show" identifier="stopRecording" id="fHz-gp-Asp"/>
                     </connections>
