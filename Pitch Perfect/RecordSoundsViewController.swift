@@ -81,7 +81,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     @IBAction func stopAudio(sender: UIButton) {
         // Show notification that recording is in progress
         recordingInProgress.hidden = true
-
+        
         //Stop recording the user's voice
         audioRecorder.stop()
         var audioSession = AVAudioSession.sharedInstance()
